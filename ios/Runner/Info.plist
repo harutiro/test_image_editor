@@ -4,6 +4,12 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+   <string>Photo Library Access Warning</string>
+   <key>NSCameraUsageDescription</key>
+   <string>Camera Library Access Warning</string>
+   <key>NSPhotoLibraryAddUsageDescription</key>
+   <string>ライブラリに保存するよ</string>
 	<key>CFBundleDisplayName</key>
 	<string>Test Image Editor</string>
 	<key>CFBundleExecutable</key>

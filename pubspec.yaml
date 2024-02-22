@@ -24,6 +24,8 @@ dependencies:
 
 #  image_editor:
   image_editor_plus: ^1.0.4
+  image_picker: ^1.0.7
+  image_gallery_saver: ^2.0.3
 
 dev_dependencies:
   flutter_test:

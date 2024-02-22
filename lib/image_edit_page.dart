@@ -22,20 +22,30 @@ class ImageEditPage extends HookConsumerWidget {
         ElevatedButton(
           child: const Text("Single image editor"),
           onPressed: () async {
-            var editedImage = await Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => ImageEditor(
-                  image: imageData,
-                ),
-              ),
-            );
 
-            // replace with edited image
-            if (editedImage != null) {
-              imageData = editedImage;
-              ref.read(editPageControllerProvider.notifier).imageData = imageData;
-            }
+            await ref.read(editPageControllerProvider.notifier).readImage().then((value) async {
+
+              if(value == null){
+                return;
+              }
+
+              var editedImage = await Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ImageEditor(
+                    image: value,
+                  ),
+                ),
+              );
+
+              // replace with edited image
+              if (editedImage != null) {
+                imageData = editedImage;
+                if(imageData != null){
+                  ref.read(editPageControllerProvider.notifier).writeImage(imageData!);
+                }
+              }
+            });
           },
         ),
         ElevatedButton(
@@ -56,7 +66,9 @@ class ImageEditPage extends HookConsumerWidget {
             // replace with edited image
             if (editedImage != null) {
               imageData = editedImage;
-              ref.read(editPageControllerProvider.notifier).imageData = imageData;
+              if(imageData != null){
+                ref.read(editPageControllerProvider.notifier).writeImage(imageData!);
+              }
             }
           },
         ),
