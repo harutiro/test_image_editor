@@ -20,7 +20,7 @@ class ImageEditPage extends HookConsumerWidget {
         if (imageData != null) Image.memory(imageData!),
         const SizedBox(height: 16),
         ElevatedButton(
-          child: const Text("Single image editor"),
+          child: const Text("一枚の画像を編集する"),
           onPressed: () async {
 
             await ref.read(editPageControllerProvider.notifier).readImage().then((value) async {
@@ -49,7 +49,7 @@ class ImageEditPage extends HookConsumerWidget {
           },
         ),
         ElevatedButton(
-          child: const Text("Multiple image editor"),
+          child: const Text("複数の画像を編集する"),
           onPressed: () async {
             var editedImage = await Navigator.push(
               context,
