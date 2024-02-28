@@ -34,6 +34,7 @@ class ImageEditPage extends HookConsumerWidget {
                 MaterialPageRoute(
                   builder: (context) => ImageEditor(
                     image: value,
+                    filtersOption: null, // nullを入れることでフィルターを非表示にする
                   ),
                 ),
               );
